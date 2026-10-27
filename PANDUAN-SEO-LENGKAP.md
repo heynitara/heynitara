@@ -51,36 +51,19 @@ Buka satu per satu di browser:
 
 **Link:** https://search.google.com/search-console
 
-**Kode verifikasi kamu:**
-```
-google-site-verification=JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU
-```
-
-### Cara verifikasi (pilih salah satu)
-
-#### Cara A — Meta tag HTML (paling cepat, sudah saya masukkan)
-Di `index.html` sudah ada:
+Meta tag verifikasi **sudah ada** di `index.html`:
 ```html
-<meta name="google-site-verification" content="JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU">
+<meta name="google-site-verification" content="JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU" />
 ```
-1. Deploy `index.html` yang baru.
-2. Di Search Console pilih property **URL prefix** → `https://heynitara.my.id/`
-3. Pilih metode **HTML tag** → klik **Verify**.
 
-#### Cara B — DNS TXT Record (untuk tipe Domain)
-1. Login Search Console → **Add property**.
-2. Pilih tipe **Domain** → ketik `heynitara.my.id` (tanpa `https://`).
-3. Buka dashboard DNS domain kamu (Niagahoster, Rumahweb, Cloudflare, Domainesia, dll.).
-4. Tambahkan record:
-   - **Type:** `TXT`
-   - **Host / Name:** `@` (atau biarkan kosong, tergantung provider)
-   - **Value / Content:**
-     ```
-     google-site-verification=JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU
-     ```
-5. Simpan. Tunggu propagasi DNS (5 menit – 48 jam).  
-   Cek status di: https://dnschecker.org
-6. Kembali ke Search Console → klik **Verify**.
+### Cara verifikasi (pakai HTML tag saja)
+1. Pastikan `index.html` versi terbaru sudah di-upload & live.
+2. Buka https://heynitara.my.id/ → klik kanan → **View Page Source**.
+3. Cari teks `google-site-verification` — harus ketemu.
+4. Di Search Console:
+   - Pilih **URL prefix** → isi `https://heynitara.my.id/`
+   - Pilih metode **HTML tag**
+   - Klik **Verify**
 
 ### Submit Sitemap
 1. Setelah terverifikasi, buka menu **Sitemaps**.
@@ -106,7 +89,7 @@ Di `index.html` sudah ada:
 
 1. Login dengan akun Microsoft.
 2. Tambahkan site `https://heynitara.my.id/`
-3. Verifikasi (bisa pakai import dari Google Search Console atau metode DNS/HTML).
+3. Verifikasi (bisa pakai import dari Google Search Console atau metode HTML tag).
 4. Submit sitemap: `https://heynitara.my.id/sitemap.xml`
 
 ---
@@ -189,7 +172,6 @@ https://business.google.com/
 → Scrape ulang di Facebook Debugger.
 
 **Search Console tidak verify**
-→ Pastikan TXT record DNS sudah benar dan sudah propogasi (cek dengan https://dnschecker.org).
 
 ---
 
