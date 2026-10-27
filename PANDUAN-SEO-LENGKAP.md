@@ -51,18 +51,36 @@ Buka satu per satu di browser:
 
 **Link:** https://search.google.com/search-console
 
-### Langkah verifikasi domain
-1. Login dengan akun Google.
-2. Klik **Add property**.
-3. Pilih tipe **Domain** (bukan URL prefix) → ketik `heynitara.my.id` (tanpa https://).
-4. Google akan menampilkan **TXT record** yang harus ditambahkan di DNS.
-5. Buka dashboard DNS domain kamu (tempat kamu beli domain / mengatur nameserver, misalnya:
-   - Niagahoster / Rumahweb / Domainesia / Cloudflare / Namecheap / Google Domains, dll.)
-6. Tambahkan record:
-   - Type: **TXT**
-   - Host/Name: `@` atau kosong (sesuai petunjuk provider)
-   - Value: salin persis kode dari Search Console
-7. Tunggu propagasi (bisa 5 menit – 48 jam). Lalu klik **Verify** di Search Console.
+**Kode verifikasi kamu:**
+```
+google-site-verification=JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU
+```
+
+### Cara verifikasi (pilih salah satu)
+
+#### Cara A — Meta tag HTML (paling cepat, sudah saya masukkan)
+Di `index.html` sudah ada:
+```html
+<meta name="google-site-verification" content="JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU">
+```
+1. Deploy `index.html` yang baru.
+2. Di Search Console pilih property **URL prefix** → `https://heynitara.my.id/`
+3. Pilih metode **HTML tag** → klik **Verify**.
+
+#### Cara B — DNS TXT Record (untuk tipe Domain)
+1. Login Search Console → **Add property**.
+2. Pilih tipe **Domain** → ketik `heynitara.my.id` (tanpa `https://`).
+3. Buka dashboard DNS domain kamu (Niagahoster, Rumahweb, Cloudflare, Domainesia, dll.).
+4. Tambahkan record:
+   - **Type:** `TXT`
+   - **Host / Name:** `@` (atau biarkan kosong, tergantung provider)
+   - **Value / Content:**
+     ```
+     google-site-verification=JvQeZSDfWKzhxuxxSExAhx30NiT0OHeTMU6V7iN75ZU
+     ```
+5. Simpan. Tunggu propagasi DNS (5 menit – 48 jam).  
+   Cek status di: https://dnschecker.org
+6. Kembali ke Search Console → klik **Verify**.
 
 ### Submit Sitemap
 1. Setelah terverifikasi, buka menu **Sitemaps**.
