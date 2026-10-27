@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heynitara.my.id/sitemap.xml
